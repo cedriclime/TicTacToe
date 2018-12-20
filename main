@@ -1,0 +1,76 @@
+import java.util.Scanner;
+public class TicTacToe {
+
+    public static void main(String[] args) {
+
+        boolean running = true;
+        int count = 0;
+        Scanner input = new Scanner(System.in);
+        while(running){
+            String[][] board ={
+                    {"|","|","|"},
+                    {"|","|","|"},
+                    {"|", "|", "|"}};
+            for(int i = 0; i < board.length; i++){
+
+                for(int j = 0; j < board.length; j++) {
+                    if (i == 0){
+                        System.out.print(board[i][j]);
+                    } else if(i == 1 && j == 0){
+                        System.out.println();
+                        System.out.print(board[i][j]);
+                    } else if(i == 1){
+                        System.out.print(board[i][j]);
+                    } else if(j == 0){
+                        System.out.println();
+                        System.out.print(board[i][j]);
+                    } else {
+                        System.out.print(board[i][j]);
+                    }
+                }
+            }
+            int[][] used = new int[][]{
+                    {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0}};
+            if(count == 0 || count % 2 == 0){
+                System.out.println("Player 1");
+                System.out.print("Enter coordinates to make selection: ");
+                int x = input.nextInt();
+                int y = input.nextInt();
+                System.out.println("(" + x + ", " + y + ")");
+                if(used[x][y] == 1){
+                    System.out.println("Selection was already made.");
+                } else {
+                    board[x][y] = "x";
+                    used[x][y] = 1;
+                    count++;
+                }
+            } else {
+                System.out.println("Player 2");
+                System.out.println("Enter coordinates to make selection: ");
+                int x = input.nextInt();
+                int y = input.nextInt();
+                System.out.println("(" + x + ", " + y + ")");
+                if(used[x][y] == 1){
+                    System.out.println("Selection was already made.");
+                } else {
+                    board[x][y] = "o";
+                    used[x][y] = 1;
+                    count++;
+                }
+            }
+
+            for(int k = 0; k < board.length; k++){
+
+                for(int d = 0; d < board.length; d++){
+
+                    if(board[0][d] == "x" || board[1][d] == "x" || board[2][d] == "x"){
+                        System.out.println("Player 1 Wins!");
+                        running = false;
+                    } else if(b
+                }
+            }
+        }
+    }
+}
